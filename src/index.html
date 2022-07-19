@@ -4,9 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QR Code Generate</title>
+    <title>QR-код генератор</title>
     <link rel="stylesheet" href="./style/style.css" />
-    <script src="./scripts/main.js"></script>
+    <script src="./scripts/main.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <div class="wrapper">
+      <div class="wrapper__info">
+        <h1 class="wrapper__title">QR code generate</h1>
+        <p class="wrapper__subtitle">Вставьте url или напишите любой текст: </p>
+      </div>
+      <form action="#" class="wrapper__form">
+        <input class="wrapper__qr-input" type="text" placeholder="Вствьте или введите текст"></input>
+        <button class="wrapper__qr-button" type="button">Создать QR-код</button>
+      </form>
+      <div class="wrapper__qr-code">
+        <img src="" alt="qr-code">
+      </div>
+    </div>
+  </body>
 </html>
