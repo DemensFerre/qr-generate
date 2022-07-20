@@ -30,12 +30,6 @@
   font-weight: 400;
   font-style: normal;
 }
-/* 
-.color1 {color: #00000a;}
-.color2 {color: #23284c;}
-.color3 {color: #545899;}
-.color4 {color: #928ff3;}
-.color5 {color: #dcccff;} */
 
 *,
 *::before,
@@ -53,7 +47,7 @@ body {
   justify-content: center;
   height: 100%;
   margin: 0;
-  padding: 0;
+  padding: 0 15px;
   font-family: "Oswald";
   font-weight: 400;
   font-size: 16px;
@@ -68,9 +62,15 @@ h1 {
 }
 
 .wrapper {
+  height: 216px;
   padding: 20px;
   border-radius: 10px;
   background-color: #545899;
+  transition: height 0.2s ease;
+}
+
+.wrapper.active {
+  height: 440px;
 }
 
 .wrapper__title {
@@ -109,7 +109,16 @@ h1 {
 .wrapper__qr-code {
   display: flex;
   justify-content: center;
+  height: auto;
+  opacity: 0;
   padding: 30px 0;
   border: 1px solid #dcccff;
   border-radius: 5px;
+  pointer-events: none;
+}
+
+.wrapper.active .wrapper__qr-code {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s 0.05s ease;
 }
