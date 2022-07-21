@@ -6,7 +6,9 @@ const qrImg = wrapper.querySelector(".wrapper__qr-code img");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+});
 
+qrButton.addEventListener("click", () => {
   const qrInputValue = qrInput.value;
 
   if (!qrInputValue) return;
