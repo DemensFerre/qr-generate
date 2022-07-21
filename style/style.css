@@ -61,6 +61,10 @@ h1 {
   margin: 0;
 }
 
+.focus:focus {
+  border: 1px solid #00000a;
+}
+
 .wrapper {
   height: 216px;
   padding: 20px;
@@ -104,6 +108,8 @@ h1 {
   font-weight: 600;
   background-color: #dcccff;
   cursor: pointer;
+  position: relative;
+  transition: all 500ms ease;
 }
 
 .wrapper__qr-code {
@@ -121,4 +127,12 @@ h1 {
   opacity: 1;
   pointer-events: auto;
   transition: opacity 0.5s 0.05s ease;
+}
+
+@media (min-width: 992px) {
+  .wrapper__qr-button:hover {
+    background: rgba(0, 0, 0, 0);
+    color: #00000a;
+    box-shadow: inset 0 0 0 3px #dcccff;
+  }
 }

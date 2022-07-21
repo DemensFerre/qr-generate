@@ -4,11 +4,7 @@ const qrInput = form.querySelector(".wrapper__qr-input");
 const qrButton = form.querySelector(".wrapper__qr-button");
 const qrImg = wrapper.querySelector(".wrapper__qr-code img");
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-});
-
-qrButton.addEventListener("click", () => {
+const viewQR = () => {
   const qrInputValue = qrInput.value;
 
   if (!qrInputValue) return;
@@ -21,4 +17,11 @@ qrButton.addEventListener("click", () => {
     wrapper.classList.add("active");
     qrButton.innerText = "Создать QR-код";
   });
+};
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  viewQR();
 });
+
+qrButton.addEventListener("click", viewQR);
