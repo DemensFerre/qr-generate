@@ -41,13 +41,13 @@ html {
   height: 100%;
 }
 
-body {
+.page {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   margin: 0;
-  padding: 0 15px;
+  padding: 15px;
   font-family: "Nunito";
   font-weight: 400;
   font-size: 16px;
@@ -66,15 +66,12 @@ h1 {
 }
 
 .wrapper {
-  height: 216px;
+  width: 100%;
+  height: 100%;
   padding: 20px;
   border-radius: 10px;
   background-color: #545899;
   transition: height 0.2s ease;
-}
-
-.wrapper.active {
-  height: 440px;
 }
 
 .wrapper__title {
@@ -85,14 +82,14 @@ h1 {
 
 .wrapper__subtitle {
   margin-bottom: 20px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .wrapper__qr-input,
 .wrapper__qr-button {
   width: 100%;
-  height: 50px;
-  margin-bottom: 10px;
+  min-height: 50px;
+
   font-family: "Nunito";
   font-size: 16px;
   outline: none;
@@ -101,10 +98,25 @@ h1 {
 }
 
 .wrapper__qr-input {
+  margin-bottom: 15px;
   padding: 0 15px;
 }
 
+.wrapper__radio-text {
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.wrapper__radio-line {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
 .wrapper__qr-button {
+  margin-bottom: 10px;
+  padding: 10px;
   font-weight: 600;
   background-color: #dcccff;
   cursor: pointer;
@@ -117,7 +129,7 @@ h1 {
   justify-content: center;
   height: auto;
   opacity: 0;
-  padding: 30px 0;
+  padding: 30px;
   border: 1px solid #dcccff;
   border-radius: 5px;
   pointer-events: none;
@@ -129,10 +141,67 @@ h1 {
   transition: opacity 0.5s 0.05s ease;
 }
 
+.radio {
+  cursor: pointer;
+}
+
+.radio__text {
+  position: relative;
+  padding-right: 18px;
+  font-weight: 600;
+}
+
+.radio__text::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #dcccff;
+}
+
+.radio__text::after {
+  content: "";
+  position: absolute;
+  right: 2px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  border-radius: 50%;
+  background-color: #23284c;
+
+  transition: opacity 0.2s linear;
+}
+
+.radio__input {
+  position: absolute;
+  visibility: hidden;
+}
+
+.radio__input:checked + .radio__text::after {
+  opacity: 1;
+}
+
 @media (min-width: 992px) {
   .wrapper__qr-button:hover {
     background: rgba(0, 0, 0, 0);
     color: #00000a;
     box-shadow: inset 0 0 0 3px #dcccff;
+  }
+}
+
+@media (max-width: 512px) {
+  .wrapper__radio-line {
+    justify-content: flex-start;
+    margin-bottom: 5px;
+  }
+  .radio {
+    margin-bottom: 10px;
+  }
+  .radio:not(:last-child) {
+    margin-right: 10px;
   }
 }
