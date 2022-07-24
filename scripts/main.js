@@ -34,3 +34,9 @@ form.addEventListener("submit", (event) => {
 });
 
 qrButton.addEventListener("click", viewQR);
+
+qrInput.addEventListener("input", () => {
+  if (!qrInput.value) {
+    wrapper.classList.remove("active");
+  }
+});
