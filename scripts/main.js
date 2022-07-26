@@ -14,11 +14,11 @@ const viewQR = () => {
 
   qrButton.innerText = "Создаем QR-код...";
 
-  radioButtons.forEach((item) => {
+  for (let item of radioButtons) {
     if (item.checked) {
       radioValue = item.value;
     }
-  });
+  }
 
   qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=${radioValue}x${radioValue}&data=${qrInputValue}`;
 
@@ -32,8 +32,6 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   viewQR();
 });
-
-qrButton.addEventListener("click", viewQR);
 
 qrInput.addEventListener("input", () => {
   if (!qrInput.value) {
